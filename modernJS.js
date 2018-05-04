@@ -88,14 +88,43 @@ function log(item) {
 // */
 // log(usersMapped);
 
-let arr = {
-	0: "pham",
-	1: "duc",
-	length: 2
-}
-let newArr = Array.from(arr);
-log(newArr);
-for (let item of newArr) {
-	log(item);
-}
+// let arr = {
+// 	0: "pham",
+// 	1: "duc",
+// 	length: 2
+// }
+// let newArr = Array.from(arr);
+// log(newArr);
+// for (let item of newArr) {
+// 	log(item);
+// }
+
+/*			04/05/2018		*/
+// let obj = {
+// 	1: "h",
+// 	// "1": "hien"
+// }
+
+// log(obj);
+// log(obj["1"]);
+
+// we add the id field
+// let john = { name: "John", id: 1 };
+
+// let visitsCounts = {};
+
+// // now store the value by id
+// visitsCounts[john.id] = 123;
+// log(visitsCounts);
+// log( visitsCounts[john.id] ); // 123
+
+// array of [key, value] pairs
+// let map = new Map([
+//   ['1',  'str1'],
+//   [1,    'num1'],
+//   [true, 'bool1']
+// ]);
+
+// log(map.keys());
+// map.forEach( (value, key) => log(key) );
 
