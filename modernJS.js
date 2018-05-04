@@ -127,4 +127,20 @@ function log(item) {
 
 // log(map.keys());
 // map.forEach( (value, key) => log(key) );
+// let set = new Set(["oranges", "apples", "bananas"]);
 
+// for (let value of set) log(value);
+
+// set.forEach((value) => {
+//   log(value);
+// });
+
+let john = { name: "John" };
+
+let map = new Map();
+map.set(john, "...");
+
+john = null; // overwrite the reference
+log(map);
+// john is stored inside the map
+// we can get it by using map.keys()
