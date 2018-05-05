@@ -19,7 +19,7 @@ function log(item) {
 
 // let user = users.find(item => item.name == "John");
 
-// alert(user.id); // John
+// log(user.id); // John
 
 // let arr = [1, 2, 15];
 // arr.sort(function(a, b) {
@@ -30,10 +30,10 @@ function log(item) {
 // 	else 
 // 		return -1;
 // });
-// alert(arr);
+// log(arr);
 // let arr = [1, -2, 15, 2, 0, 8];
 // arr.sort(function(a, b) {
-//   alert( a + " <> " + b );
+//   log( a + " <> " + b );
 // 	if (a == b)
 // 		return 0;
 // 	if (a > b) 
@@ -41,12 +41,12 @@ function log(item) {
 // 	else 
 // 		return -1;
 // });
-// alert(arr);
+// log(arr);
 
 // arr.sort( (a, b) => a - b );
-// alert(arr);
+// log(arr);
 
-// arr.forEach((item) => alert(item) );
+// arr.forEach((item) => log(item) );
 
 // function camelize(str) {
 // 	let elementArr = str.split('-');
@@ -135,12 +135,64 @@ function log(item) {
 //   log(value);
 // });
 
-let john = { name: "John" };
+// let john = { name: "John" };
 
-let map = new Map();
-map.set(john, "...");
+// let map = new Map();
+// map.set(john, "...");
 
-john = null; // overwrite the reference
-log(map);
-// john is stored inside the map
-// we can get it by using map.keys()
+// john = null; // overwrite the reference
+// log(map);
+// // john is stored inside the map
+// // we can get it by using map.keys()
+
+// we have an array with the name and surname
+// let arr = ["Ilya", "Kantor"]
+
+// // destructuring assignment
+// let [firstName, surname] = arr;
+// log(firstName)
+
+
+// let options = {
+//   title: "Menu",
+//   width: 100,
+//   height: 200
+// };
+
+// let {title, width, height} = options;
+
+// log(title);  // Menu
+// log(width);  // 100
+// log(height); // 200
+
+// let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+// log(name1); // Julius
+// log(name2); // Caesar
+// log(rest); 
+
+// let now = new Date("05/05/2018");
+// log(now);
+
+// let student = {
+//   name: 'John',
+//   age: 30,
+//   isAdmin: false,
+//   courses: ['html', 'css', 'js'],
+//   wife: null
+// };
+
+// let json = JSON.stringify(student);
+// log(json);
+// let obj = JSON.parse(json);
+// log(obj);
+
+let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+
+let meetup = JSON.parse(str, function(key, value) {
+  if (key == 'date') return new Date(value);
+  return value;
+});
+
+log(meetup);
+
