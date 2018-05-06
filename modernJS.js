@@ -1,4 +1,4 @@
-function log(item) {
+function my_log(item) {
 	console.log(item);
 }
 
@@ -9,7 +9,7 @@ function log(item) {
 // let arr = ["I", "go", "home"];
 
 // delete arr[0];
-// console.log(arr);
+// console.my_log(arr);
 
 // let users = [
 //   {id: 1, name: "John"},
@@ -19,7 +19,7 @@ function log(item) {
 
 // let user = users.find(item => item.name == "John");
 
-// log(user.id); // John
+// my_log(user.id); // John
 
 // let arr = [1, 2, 15];
 // arr.sort(function(a, b) {
@@ -30,10 +30,10 @@ function log(item) {
 // 	else 
 // 		return -1;
 // });
-// log(arr);
+// my_log(arr);
 // let arr = [1, -2, 15, 2, 0, 8];
 // arr.sort(function(a, b) {
-//   log( a + " <> " + b );
+//   my_log( a + " <> " + b );
 // 	if (a == b)
 // 		return 0;
 // 	if (a > b) 
@@ -41,21 +41,21 @@ function log(item) {
 // 	else 
 // 		return -1;
 // });
-// log(arr);
+// my_log(arr);
 
 // arr.sort( (a, b) => a - b );
-// log(arr);
+// my_log(arr);
 
-// arr.forEach((item) => log(item) );
+// arr.forEach((item) => my_log(item) );
 
 // function camelize(str) {
 // 	let elementArr = str.split('-');
 // 	let upCaseArr = elementArr.map( item => item[0].toUpperCase() + item.slice(1));
-// 	console.log(upCaseArr);
+// 	console.my_log(upCaseArr);
 // 	return upCaseArr.join('');
 // }
 
-// console.log(camelize("background-color"));
+// console.my_log(camelize("background-color"));
 
 // let arr = [5, 3, 8, 1];
 
@@ -64,7 +64,7 @@ function log(item) {
 // }
 
 // let filtered = filterRange(arr, 1, 4);
-// log(filtered);
+// my_log(filtered);
 
 // let john = { name: "John", surname: "Smith", id: 1 };
 // let pete = { name: "Pete", surname: "Hunt", id: 2 };
@@ -86,7 +86,7 @@ function log(item) {
 //   { fullName: "Mary Key", id: 3 }
 // ]
 // */
-// log(usersMapped);
+// my_log(usersMapped);
 
 // let arr = {
 // 	0: "pham",
@@ -94,9 +94,9 @@ function log(item) {
 // 	length: 2
 // }
 // let newArr = Array.from(arr);
-// log(newArr);
+// my_log(newArr);
 // for (let item of newArr) {
-// 	log(item);
+// 	my_log(item);
 // }
 
 /*			04/05/2018		*/
@@ -105,8 +105,8 @@ function log(item) {
 // 	// "1": "hien"
 // }
 
-// log(obj);
-// log(obj["1"]);
+// my_log(obj);
+// my_log(obj["1"]);
 
 // we add the id field
 // let john = { name: "John", id: 1 };
@@ -115,8 +115,8 @@ function log(item) {
 
 // // now store the value by id
 // visitsCounts[john.id] = 123;
-// log(visitsCounts);
-// log( visitsCounts[john.id] ); // 123
+// my_log(visitsCounts);
+// my_log( visitsCounts[john.id] ); // 123
 
 // array of [key, value] pairs
 // let map = new Map([
@@ -125,14 +125,14 @@ function log(item) {
 //   [true, 'bool1']
 // ]);
 
-// log(map.keys());
-// map.forEach( (value, key) => log(key) );
+// my_log(map.keys());
+// map.forEach( (value, key) => my_log(key) );
 // let set = new Set(["oranges", "apples", "bananas"]);
 
-// for (let value of set) log(value);
+// for (let value of set) my_log(value);
 
 // set.forEach((value) => {
-//   log(value);
+//   my_log(value);
 // });
 
 // let john = { name: "John" };
@@ -141,7 +141,7 @@ function log(item) {
 // map.set(john, "...");
 
 // john = null; // overwrite the reference
-// log(map);
+// my_log(map);
 // // john is stored inside the map
 // // we can get it by using map.keys()
 
@@ -150,7 +150,7 @@ function log(item) {
 
 // // destructuring assignment
 // let [firstName, surname] = arr;
-// log(firstName)
+// my_log(firstName)
 
 
 // let options = {
@@ -161,18 +161,18 @@ function log(item) {
 
 // let {title, width, height} = options;
 
-// log(title);  // Menu
-// log(width);  // 100
-// log(height); // 200
+// my_log(title);  // Menu
+// my_log(width);  // 100
+// my_log(height); // 200
 
 // let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
 
-// log(name1); // Julius
-// log(name2); // Caesar
-// log(rest); 
+// my_log(name1); // Julius
+// my_log(name2); // Caesar
+// my_log(rest); 
 
 // let now = new Date("05/05/2018");
-// log(now);
+// my_log(now);
 
 // let student = {
 //   name: 'John',
@@ -183,16 +183,29 @@ function log(item) {
 // };
 
 // let json = JSON.stringify(student);
-// log(json);
+// my_log(json);
 // let obj = JSON.parse(json);
-// log(obj);
+// my_log(obj);
 
-let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
+// let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
 
-let meetup = JSON.parse(str, function(key, value) {
-  if (key == 'date') return new Date(value);
-  return value;
-});
+// let meetup = JSON.parse(str, function(key, value) {
+//   if (key == 'date') return new Date(value);
+//   return value;
+// });
 
-log(meetup);
+// my_log(meetup);
 
+// let arr = [];
+// arr.push(1);
+// arr.push(2);
+// arr.push(3);
+
+// my_log(arr.pop());
+// let dest ={};
+// dest = Object.assign(dest, {"1": "one"}, {2: "two"});
+// my_log(dest);
+
+// let arr = [1, 5, 9, 7];
+// my_log(Math.max(...arr));  // 9
+// my_log([...arr]);  // [1, 5, 9, 7]
