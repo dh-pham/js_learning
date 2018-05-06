@@ -209,3 +209,44 @@ function my_log(item) {
 // let arr = [1, 5, 9, 7];
 // my_log(Math.max(...arr));  // 9
 // my_log([...arr]);  // [1, 5, 9, 7]
+
+// let name = "John";
+
+// function sayHi() {
+//   my_log("Hi, " + name);
+// }
+
+// name = "Pete";
+
+// sayHi(); // what will it show: "John" or "Pete"?
+
+// function makeWorker() {
+//   let name = "Pete";
+
+//   return function() {
+//     my_log(name);
+//   };
+// }
+
+// let name = "John";
+
+// // create a function
+// let work = makeWorker();
+
+// // call it
+// work(); // what will it show? "Pete" (name where created) or "John" (name where called)?
+
+function makeCounter() {
+  let count = 0;
+
+  return function() {
+    return count++; // has access to the outer counter
+  };
+}
+
+let counter = makeCounter();
+
+my_log(counter());
+my_log(counter());
+my_log( makeCounter()() ); // 0
+my_log( makeCounter()() ); // 0
