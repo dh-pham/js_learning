@@ -236,17 +236,83 @@ function my_log(item) {
 // // call it
 // work(); // what will it show? "Pete" (name where created) or "John" (name where called)?
 
-function makeCounter() {
-  let count = 0;
+// function makeCounter() {
+//   let count = 0;
 
-  return function() {
-    return count++; // has access to the outer counter
-  };
+//   return function() {
+//     return count++; // has access to the outer counter
+//   };
+// }
+
+// let counter = makeCounter();
+
+// my_log(counter());
+// my_log(counter());
+// my_log( makeCounter()() ); // 0
+// my_log( makeCounter()() ); // 0
+
+// function sayHi() {
+//   my_log(phrase);
+
+//   var phrase = "Hello";
+// }
+
+// sayHi();
+
+// var phrase = "Hello";
+
+// function sayHi() {
+// 	var hien = 1;
+//   my_log(phrase);
+// }
+
+// // can read from window
+// my_log( window.phrase ); // Hello (global var)
+// my_log( window.sayHi ); // function (global function declaration)
+
+// // can write to window (creates a new global variable)
+// window.test = 5;
+
+// my_log(test); // 5
+
+// function helloWorld() {
+// 	alert("Hello World!");
+// }
+
+// setTimeout(helloWorld, 2000);
+
+// let i = 0;
+
+// setTimeout(() => alert(i), 100); // ?
+
+// // assume that the time to execute this function is >100ms
+// for(let j = 0; j < 100000000; j++) {
+//   i++;
+// }
+
+function power(a, b) {
+	return a ** b;
 }
 
-let counter = makeCounter();
+// my_log(power(4, 3));
+// let arr = [4, 3];
+// my_log(power(...arr));
+function funcDecorator(func) {
+	let caching = new Map();
+	return function(...arr) {
+		if (caching.has(func(...arr)) ) {
+			my_log(`cached ${caching.get(func(...arr))}`);
+			return caching.get(func(...arr));
+		} else {
+			let result = func(...arr);
+			my_log(`add ${result} to Map`);
+			caching.set(func(...arr), result);
+			return result;
+		}
+	}
+}
+powerDecorator = funcDecorator(power);
+powerDecorator(2, 3) // expect 8
+powerDecorator(2, 5) // expect 32
+powerDecorator(2, 3) // expect 8
 
-my_log(counter());
-my_log(counter());
-my_log( makeCounter()() ); // 0
-my_log( makeCounter()() ); // 0
