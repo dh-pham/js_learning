@@ -290,29 +290,189 @@ function my_log(item) {
 //   i++;
 // }
 
-function power(a, b) {
-	return a ** b;
+// function power(a, b) {
+// 	return a ** b;
+// }
+
+// // my_log(power(4, 3));
+// // let arr = [4, 3];
+// // my_log(power(...arr));
+// function funcDecorator(func) {
+// 	let caching = new Map();
+// 	return function(...arr) {
+// 		if (caching.has(func(...arr)) ) {
+// 			my_log(caching.keys());
+// 			return caching.get(func(...arr));
+// 		} else {
+// 			let result = func(...arr);
+// 			my_log(`add ${result} to Map`);
+// 			caching.set(func(...arr), result);
+// 			return result;
+// 		}
+// 	}
+// }
+// powerDecorator = funcDecorator(power);
+// powerDecorator(2, 3) // expect 8
+// powerDecorator(2, 5) // expect 32
+// powerDecorator(2, 3) // expect 8
+
+// let user = {
+//   firstName: "John",
+//   sayHi() {
+//     alert(`Hello, ${this.firstName}!`);
+//   }
+// };
+
+// setTimeout(user.sayHi, 1000); // Hello, undefined!
+
+
+// let animal = {
+//   eats: true
+// };
+// let rabbit = {
+//   jumps: true
+// };
+// my_log(rabbit);
+// my_log(rabbit.eats);
+
+// rabbit.__proto__ = animal;
+
+// my_log(rabbit);
+// my_log(rabbit.eats);
+
+// let person = {
+// 	firstName: "Hien",
+// 	lastName: "Pham",
+// 	get fullName() {
+// 		// my_log(this.firstName);
+// 		return this.firstName + " " + this.lastName;
+// 	}
+// }
+
+// let admin = {
+// 	__proto__: person,
+// 	isAdmin: true
+// }
+
+// my_log(admin.fullName);
+
+// function f() {
+//   my_log("Hello!");
+// }
+
+// Function.prototype.defer = function(ms) {
+// 	setTimeout(this, ms);
+// }
+// f.defer(1000); // shows "Hello!" after 1 second
+
+// function f(a, b) {
+//   my_log( a + b );
+// }
+// Function.prototype.defer = function(ms) {
+// 	let f = this;
+// 	return function (...args) {
+// 		setTimeout(() => f.apply(this, args), ms);
+// 	}
+// };
+
+// f.defer(1000)(1, 2); // shows 3 after 1 second
+
+// function User(name, birthday) {
+//   this._name = name;
+//   this._birthday = birthday;
+// }
+
+// User.prototype._calcAge = function() {
+//   return new Date().getFullYear() - this._birthday.getFullYear();
+// };
+
+// User.prototype.sayHi = function() {
+//   my_log(`${this._name}, age:${this._calcAge()}`);
+// };
+
+// let user = new User("John", new Date(2000, 0, 1));
+// user.sayHi(); // John, age:17
+// my_log(user._name);
+
+// class Person {
+// 	constructor(name) {
+// 		this.name = name;
+// 	}
+// 	sayHi() {
+// 		my_log("Hello!" + this.name);
+// 	}
+// }
+
+// let hien = new Person("Hien");
+// hien.sayHi();
+
+// my_log(hien.name);
+// class User {
+//   constructor(name) {
+//     // invokes the setter
+//     this.name = name;
+//   }
+
+//   get name() {
+//     return this._name;
+//   }
+
+//   set name(value) {
+//     if (value.length < 4) {
+//       alert("Name is too short.");
+//       return;
+//     }
+//     this._name = value;
+//   }
+
+// }
+
+// let user = new User("John");
+// alert(user.name); // John
+
+// user = new User(""); // Name too short.
+
+// try {
+
+//   alert('Start of try runs');  // (1) <--
+
+//   lalala; // error, variable is not defined!
+
+//   alert('End of try (never reached)');  // (2)
+
+// } catch(err) {
+
+//   alert(err); // (3) <--
+
+// }
+
+// alert("...Then the execution continues");
+
+// try {
+//   setTimeout(function() {
+//     noSuchVariable; // script will die here
+//   }, 1000);
+// } catch (e) {
+//   alert( "won't work" );
+// }
+
+let json = `{"bad": 20}`;
+
+try {
+
+  let user = JSON.parse(json); // <-- when an error occurs...
+  alert( user.bad ); // doesn't work
+
+} catch (e) {
+  // ...the execution jumps here
+  alert( "Our apologies, the data has errors, we'll try to request it one more time." );
+  alert( e.name );
+  alert( e.message );
 }
 
-// my_log(power(4, 3));
-// let arr = [4, 3];
-// my_log(power(...arr));
-function funcDecorator(func) {
-	let caching = new Map();
-	return function(...arr) {
-		if (caching.has(func(...arr)) ) {
-			my_log(`cached ${caching.get(func(...arr))}`);
-			return caching.get(func(...arr));
-		} else {
-			let result = func(...arr);
-			my_log(`add ${result} to Map`);
-			caching.set(func(...arr), result);
-			return result;
-		}
-	}
-}
-powerDecorator = funcDecorator(power);
-powerDecorator(2, 3) // expect 8
-powerDecorator(2, 5) // expect 32
-powerDecorator(2, 3) // expect 8
+
+
+
+
+
 
